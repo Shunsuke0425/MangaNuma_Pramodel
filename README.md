@@ -1,1 +1,2 @@
-# MangaMura_Pramodel!!!
+# MangaMura_Pramodel
+Shunsuke
