@@ -42,9 +42,9 @@ export default Vue.extend({
     point: {
       type: Number,
       default: 100,
-      required: false
-    }
-  }
+      required: false,
+    },
+  },
 });
 </script>
 
