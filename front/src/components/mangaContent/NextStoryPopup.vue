@@ -1,11 +1,5 @@
 <template>
-  <BasePopup
-    ref="popup"
-    :title="title"
-    :width="230"
-    persisten
-    :titleStyle="titleStyle"
-  >
+  <BasePopup ref="popup" :title="title" :width="230" persisten>
     <template #actions>
       <v-row justify="center">
         <v-btn

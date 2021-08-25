@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BaseContainer>
+    <BaseContainer :point="userPoint">
       <template #mainContents>
         <v-app>
           <h1>コメント</h1>
@@ -39,6 +39,11 @@ export default Vue.extend({
   components: {
     BaseContainer,
     CommentList,
+  },
+  computed: {
+    userPoint(): number {
+      return this.$store.state.point;
+    },
   },
   data() {
     return {

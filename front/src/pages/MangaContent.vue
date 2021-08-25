@@ -1,5 +1,5 @@
 <template>
-  <BaseContainer>
+  <BaseContainer :point="userPoint">
     <template #mainContents>
       <v-row>
         <v-col>
@@ -67,13 +67,19 @@ export default Vue.extend({
     },
     lastPage(): number {
       return 15;
+      // return book.page.length
+    },
+    userPoint(): number {
+      return this.$store.state.point;
+    },
+    isReadPage(): boolean {
+      return this.lastReadPage > this.currentReadPage;
     },
   },
   data() {
     return {
       currentReadPage: 0,
       lastReadPage: 0,
-      dialog: false,
     };
   },
   methods: {
@@ -81,11 +87,15 @@ export default Vue.extend({
       this.$router.push({ name: "MangaDetail" });
     },
     nextPage(): void {
+      console.log(this.currentReadPage, this.lastReadPage);
       if (this.lastPage == this.currentReadPage + 1) this.openNextStoryDialog();
+      else if (this.userPoint <= 0 && !this.isReadPage)
+        this.openNoPointDialog();
       else {
         this.currentReadPage++;
-        if (this.lastReadPage == this.currentReadPage) {
+        if (this.lastReadPage + 1 == this.currentReadPage) {
           this.lastReadPage++;
+          this.$store.commit("deletePoint", 1);
         }
       }
     },
@@ -115,6 +125,7 @@ export default Vue.extend({
     },
     moveToMangaContent(): void {
       this.currentReadPage = 0;
+      this.lastReadPage = 0;
       this.closeNextStoryDialog();
     },
   },
