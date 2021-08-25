@@ -1,14 +1,20 @@
 <template>
   <v-dialog v-model="dialog" :width="width">
     <v-card>
-      <v-card-title v-if="title">{{ title }}</v-card-title>
-      <slot name="headerContents" />
-      <v-card-text>
-        <slot name="contents" />
-      </v-card-text>
-      <v-card-actions>
-        <slot name="actions" />
-      </v-card-actions>
+      <center>
+        <v-card-title v-if="title">
+          <h3>
+            {{ title }}
+          </h3>
+        </v-card-title>
+        <slot name="headerContents" />
+        <v-card-text>
+          <slot name="contents" />
+        </v-card-text>
+        <v-card-actions>
+          <slot name="actions" />
+        </v-card-actions>
+      </center>
     </v-card>
   </v-dialog>
 </template>

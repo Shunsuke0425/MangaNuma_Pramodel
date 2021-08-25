@@ -15,24 +15,24 @@ const routes: Array<RouteConfig> = [
     component: Login,
   },
   {
-    path: "/MangaList",
+    path: "/mangaList",
     name: "MangaList",
     component: MangaList,
   },
   {
-    path: "/MangaDetail",
+    path: "/mangaDetail",
     name: "MangaDetail",
     component: MangaDetail,
   },
   {
-    path: "/MangaContent",
+    path: "/mangaContent",
     name: "MangaContent",
     component: MangaContent,
   },
   {
     path: "/comment",
     name: "Comment",
-    component: Comment
+    component: Comment,
   },
 
   //コメントページを追加

@@ -9,6 +9,7 @@
             width="250px"
             height="50px"
             class="mt-8 mb-4"
+            @click="moveToComment"
           >
             <v-icon color="white">mdi-chat</v-icon>
             <div style="color: white" class="pl-3">コメントを見る</div>
@@ -50,6 +51,9 @@ export default Vue.extend({
   methods: {
     moveToMangaContent(): void {
       this.$router.push({ name: "MangaContent" });
+    },
+    moveToComment(): void {
+      this.$router.push({ name: "Comment" });
     },
   },
 });

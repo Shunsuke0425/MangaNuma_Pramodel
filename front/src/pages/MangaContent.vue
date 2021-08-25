@@ -7,7 +7,7 @@
             <v-layout justify-center>
               <!--
               <v-img :src="book.page[currentReadPage ]" />
-               -->
+              -->
               <v-img
                 src="https://1.bp.blogspot.com/-tVeC6En4e_E/X96mhDTzJNI/AAAAAAABdBo/jlD_jvZvMuk3qUcNjA_XORrA4w3lhPkdQCNcBGAsYHQ/s1048/onepiece01_luffy.png"
               />
@@ -30,7 +30,16 @@
           </v-col>
         </v-row>
       </v-row>
-      <NoPointPopup ref="popup" />
+      <NoPointPopup
+        ref="noPointPopup"
+        @move-to-point="moveToPoint"
+        @move-to-comment="moveToComment"
+      />
+      <NextStoryPopup
+        ref="nextStoryPopup"
+        @move-to-manga-content="moveToMangaContent"
+        @move-to-comment="moveToComment"
+      />
     </template>
   </BaseContainer>
 </template>
@@ -39,6 +48,7 @@
 import Vue from "vue";
 import BaseContainer from "../components/common/BaseContainer.vue";
 import NoPointPopup from "../components/mangaContent/NoPointPopup.vue";
+import NextStoryPopup from "../components/mangaContent/NextStoryPopup.vue";
 import { dummyBooks } from "../dummyData/DummyBooks";
 
 export default Vue.extend({
@@ -46,6 +56,7 @@ export default Vue.extend({
   components: {
     BaseContainer,
     NoPointPopup,
+    NextStoryPopup,
   },
   computed: {
     dummyBooks() {
@@ -70,7 +81,7 @@ export default Vue.extend({
       this.$router.push({ name: "MangaDetail" });
     },
     nextPage(): void {
-      if (this.lastPage == this.currentReadPage + 1) console.log("end");
+      if (this.lastPage == this.currentReadPage + 1) this.openNextStoryDialog();
       else {
         this.currentReadPage++;
         if (this.lastReadPage == this.currentReadPage) {
@@ -79,14 +90,32 @@ export default Vue.extend({
       }
     },
     prevPage(): void {
-      this.openDialog();
       if (this.currentReadPage >= 1) this.currentReadPage--;
     },
-    openDialog(): void {
-      (this.$refs.popup as InstanceType<typeof NoPointPopup>).openDialog();
+    openNextStoryDialog(): void {
+      (
+        this.$refs.nextStoryPopup as InstanceType<typeof NextStoryPopup>
+      ).openDialog();
     },
-    closeDialog(): void {
-      (this.$refs.popup as InstanceType<typeof NoPointPopup>).closeDialog();
+    closeNextStoryDialog(): void {
+      (
+        this.$refs.nextStoryPopup as InstanceType<typeof NextStoryPopup>
+      ).closeDialog();
+    },
+    openNoPointDialog(): void {
+      (
+        this.$refs.noPointPopup as InstanceType<typeof NoPointPopup>
+      ).openDialog();
+    },
+    moveToPoint(): void {
+      // this.$router.push({ name: "Point" });
+    },
+    moveToComment(): void {
+      this.$router.push({ name: "Comment" });
+    },
+    moveToMangaContent(): void {
+      this.currentReadPage = 0;
+      this.closeNextStoryDialog();
     },
   },
 });

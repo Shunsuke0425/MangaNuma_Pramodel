@@ -15,13 +15,13 @@
             <v-col cols="10" md="4">
               <v-text-field
                 v-model="addMessage"
-                label="コメントを入力してください"
+                label="コメント"
                 outlined
                 hide-details="false"
                 required
-              ></v-text-field>
+              />
             </v-col>
-            <v-btn @click="addClick">送信</v-btn>
+            <v-btn @click="addComment">送信</v-btn>
           </v-footer>
         </v-app>
       </template>
@@ -47,7 +47,7 @@ export default Vue.extend({
     };
   },
   methods: {
-    addClick(): void {
+    addComment(): void {
       if (this.addMessage) {
         this.messageArray.push(this.addMessage);
         this.addMessage = "";

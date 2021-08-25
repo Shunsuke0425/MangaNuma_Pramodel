@@ -6,7 +6,6 @@
     persisten
     :titleStyle="titleStyle"
   >
-    <template #contents> ポイントが足りません </template>
     <template #actions>
       <v-row justify="center">
         <v-btn
@@ -24,10 +23,10 @@
           width="180px"
           height="50px"
           class="mb-4"
-          @click="moveToPoint"
+          @click="moveToMangaContent"
         >
-          <h2>P</h2>
-          <div class="pl-3">ポイントを購入</div>
+          <v-icon>mdi-book-open-variant</v-icon>
+          <div class="pl-3">次の話へ</div>
         </v-btn>
       </v-row>
     </template>
@@ -53,8 +52,11 @@ export default Vue.extend({
     openDialog(): void {
       (this.$refs.popup as InstanceType<typeof BasePopup>).openDialog();
     },
-    moveToPoint(): void {
-      this.$emit("move-to-point");
+    closeDialog(): void {
+      (this.$refs.popup as InstanceType<typeof BasePopup>).closeDialog();
+    },
+    moveToMangaContent(): void {
+      this.$emit("move-to-manga-content");
     },
     moveToComment(): void {
       this.$emit("move-to-comment");
