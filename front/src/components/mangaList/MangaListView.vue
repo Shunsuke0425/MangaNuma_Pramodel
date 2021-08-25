@@ -1,8 +1,13 @@
 <template>
-  <div class="ma-5">
+  <div>
     <v-row v-for="n in rowNum" :key="n">
       <v-col v-for="m in colNum(n)" :key="m">
-        <MangaCard :book="books[(n - 1) * 3 - m]" />
+        <MangaCard
+          :book="books[(n - 1) * 3 - m]"
+          :width="80"
+          :height="120"
+          @card-tap="cardTap"
+        />
       </v-col>
     </v-row>
   </div>
@@ -10,11 +15,11 @@
 
 <script lang="ts">
 import Vue, { PropType } from "vue";
-import MangaCard from "./MangaCard.vue";
+import MangaCard from "../common/MangaCard.vue";
 import { Book } from "../../types/Book";
 
 export default Vue.extend({
-  name: "Home",
+  name: "MangaListView",
   components: {
     MangaCard,
   },
@@ -33,16 +38,13 @@ export default Vue.extend({
   methods: {
     colNum(row: number): number {
       const remain = this.books.length - (row - 1) * 3;
-      console.log(this.books.length);
       if (remain >= 3) return 3;
       else return remain;
+    },
+    cardTap(): void {
+      console.log("tap");
+      this.$emit("card-tap");
     },
   },
 });
 </script>
-
-<style scoped>
-div {
-  text-align: center;
-}
-</style>

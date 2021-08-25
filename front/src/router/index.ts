@@ -1,21 +1,26 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import MangaList from "../pages/MangaList.vue";
+import Login from "../pages/Login.vue";
+import MangaDetail from "../pages/MangaDetail.vue";
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
     path: "/",
+    name: "Login",
+    component: Login,
+  },
+  {
+    path: "/MangaList",
     name: "MangaList",
     component: MangaList,
   },
-  //ログインページを追加
   {
-    path: "/login",
-    name: "Login",
-    component: () =>
-      import(/* webpackChunkName: "login" */ "../pages/Login.vue"),
+    path: "/MangaDetail",
+    name: "MangaDetail",
+    component: MangaDetail,
   },
 ];
 

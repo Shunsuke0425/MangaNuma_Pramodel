@@ -4,7 +4,7 @@
     <LoginIcon />
     <LoginForm :labelName="id" />
     <LoginForm :labelName="password" />
-    <LoginButton />
+    <LoginButton @login="login" />
   </div>
 </template>
 
@@ -25,9 +25,14 @@ export default Vue.extend({
   },
   data() {
     return {
-      id: "userID",
-      password: "password",
+      id: "ユーザーID",
+      password: "パスワード",
     };
+  },
+  methods: {
+    login(): void {
+      this.$router.push({ name: "MangaList" });
+    },
   },
 });
 </script>

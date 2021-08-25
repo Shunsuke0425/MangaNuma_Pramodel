@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-container>
     <v-app-bar color="deep-purple accent-4" fixed>
       <v-app-bar-nav-icon>
         <v-icon color="white">mdi-book-open-variant</v-icon>
@@ -23,17 +23,19 @@
       fixed
       height="60"
     >
-      <v-btn fab small color="white">
+      <v-btn fab small color="white" @click="routerPush(0)">
         <v-icon>mdi-home</v-icon>
       </v-btn>
 
-      <v-btn fab small color="white">
+      <v-btn fab small color="white" @click="routerPush(1)">
         <v-icon>mdi-account</v-icon>
       </v-btn>
 
-      <v-btn fab small color="yellow"><h1>P</h1></v-btn>
+      <v-btn fab small color="yellow" @click="routerPush(0)">
+        <h1>P</h1>
+      </v-btn>
     </v-footer>
-  </div>
+  </v-container>
 </template>
 
 <script lang="ts">
@@ -45,6 +47,23 @@ export default Vue.extend({
       type: Number,
       default: 100,
       required: false,
+    },
+  },
+  methods: {
+    routerPush(index: number): void {
+      switch (index) {
+        case 0:
+          this.$router.push({ name: "MangaList" });
+          break;
+        case 1:
+          this.$router.push({ name: "Login" });
+          break;
+        case 2:
+          // this.$router.push({name: ""});
+          break;
+        default:
+          break;
+      }
     },
   },
 });
