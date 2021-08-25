@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>婚姻届</h1>
     <div v-for="commentText in getMessage" v-bind:key="commentText">
+      <v-icon>mdi-account-circle</v-icon>
       {{ commentText }}
     </div>
   </div>

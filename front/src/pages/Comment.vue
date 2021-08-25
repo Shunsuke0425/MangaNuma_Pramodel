@@ -3,6 +3,7 @@
     <BaseContainer>
       <template #mainContents>
         <v-app>
+          <h1>コメント</h1>
           <CommentList :getMessage="messageArray" />
 
           <v-row>
