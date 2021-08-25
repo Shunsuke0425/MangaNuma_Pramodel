@@ -1,7 +1,7 @@
 <template>
   <BaseContainer>
     <template #mainContents>
-      <MangaListView :books="dummyBooks" />
+      <MangaListView :books="dummyBooks" @card-tap="cardTap" />
     </template>
   </BaseContainer>
 </template>
@@ -21,6 +21,11 @@ export default Vue.extend({
   computed: {
     dummyBooks() {
       return dummyBooks;
+    },
+  },
+  methods: {
+    cardTap(): void {
+      this.$router.push({ name: "MangaDetail" });
     },
   },
 });

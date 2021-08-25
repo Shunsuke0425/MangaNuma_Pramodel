@@ -1,5 +1,5 @@
 <template>
-  <v-card :height="height" :width="width" elevation="5">
+  <v-card :height="height" :width="width" elevation="5" @click="cardTap">
     <v-img :src="book.src" :height="height" :width="width" />
   </v-card>
 </template>
@@ -28,6 +28,11 @@ export default Vue.extend({
       type: Number,
       default: 0,
       required: true,
+    },
+  },
+  methods: {
+    cardTap(): void {
+      this.$emit("card-tap");
     },
   },
 });

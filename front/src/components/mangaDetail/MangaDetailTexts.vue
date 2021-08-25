@@ -1,15 +1,13 @@
 <template>
-  <div>
-    <v-row justify="center">
-      <MangaCard :width="100" :height="150" />
-      <div class="ml-5">
-        10話無料
-        <h2>{{ book.title }}</h2>
-        <p>作者: 作者</p>
-        説明文..................
-      </div>
-    </v-row>
-  </div>
+  <v-row justify="center">
+    <MangaCard :width="100" :height="150" />
+    <div class="ml-5">
+      10話無料
+      <h2>{{ book.title }}</h2>
+      <p>作者: 作者</p>
+      説明文..................
+    </div>
+  </v-row>
 </template>
 
 <script lang="ts">

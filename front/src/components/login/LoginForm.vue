@@ -7,7 +7,7 @@
         outlind
         hide-details="false"
         required
-      ></v-text-field>
+      />
     </v-col>
   </div>
 </template>

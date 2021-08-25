@@ -1,13 +1,19 @@
 <template>
-  <div>
-    <v-btn elevation="5">ログイン</v-btn>
+  <div class="pt-4">
+    <v-btn elevation="5" @click="login">ログイン</v-btn>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 
-export default Vue.extend({});
+export default Vue.extend({
+  methods: {
+    login(): void {
+      this.$emit("login");
+    },
+  },
+});
 </script>
 
 <style scoped>
