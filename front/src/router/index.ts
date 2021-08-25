@@ -3,6 +3,7 @@ import VueRouter, { RouteConfig } from "vue-router";
 import MangaList from "../pages/MangaList.vue";
 import Login from "../pages/Login.vue";
 import MangaDetail from "../pages/MangaDetail.vue";
+import MangaContent from "../pages/MangaContent.vue";
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,11 @@ const routes: Array<RouteConfig> = [
     path: "/MangaDetail",
     name: "MangaDetail",
     component: MangaDetail,
+  },
+  {
+    path: "/MangaContent",
+    name: "MangaContent",
+    component: MangaContent,
   },
 ];
 

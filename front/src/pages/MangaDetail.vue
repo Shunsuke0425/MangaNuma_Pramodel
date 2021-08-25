@@ -15,7 +15,12 @@
           </v-btn>
         </v-row>
         <v-row v-for="n in 6" :key="n" justify="center">
-          <v-btn width="250px" height="60px" class="mt-3">
+          <v-btn
+            width="250px"
+            height="60px"
+            class="mt-3"
+            @click="moveToMangaContent"
+          >
             <v-img :src="dummyBooks[n].src" height="50px" width="50px" />
             {{ n }}話
           </v-btn>
@@ -40,6 +45,11 @@ export default Vue.extend({
   computed: {
     dummyBooks() {
       return dummyBooks;
+    },
+  },
+  methods: {
+    moveToMangaContent(): void {
+      this.$router.push({ name: "MangaContent" });
     },
   },
 });
