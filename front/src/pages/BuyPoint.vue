@@ -38,11 +38,11 @@ export default Vue.extend({
   data() {
     return {
       point: 100,
-      addNubmer: "",
+      addNumber: "",
     };
   },
   methods: {
-    getPoint: function () {
+    getPoint(): void {
       if (this.addNumber == "1111") {
         this.point += 200;
         this.addNumber = "";
