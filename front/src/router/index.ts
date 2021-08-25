@@ -5,6 +5,7 @@ import Login from "../pages/Login.vue";
 import MangaDetail from "../pages/MangaDetail.vue";
 import Comment from "../pages/Comment.vue";
 import BuyPoint from "../pages/BuyPoint.vue";
+import MangaContent from "../pages/MangaContent.vue";
 
 Vue.use(VueRouter);
 
@@ -15,14 +16,19 @@ const routes: Array<RouteConfig> = [
     component: Login,
   },
   {
-    path: "/MangaList",
+    path: "/mangaList",
     name: "MangaList",
     component: MangaList,
   },
   {
-    path: "/MangaDetail",
+    path: "/mangaDetail",
     name: "MangaDetail",
     component: MangaDetail,
+  },
+  {
+    path: "/mangaContent",
+    name: "MangaContent",
+    component: MangaContent,
   },
   {
     path: "/comment",
@@ -30,7 +36,7 @@ const routes: Array<RouteConfig> = [
     component: Comment,
   },
   {
-    path: "/BuyPoint",
+    path: "/buyPoint",
     name: "BuyPoint",
     component: BuyPoint,
   },

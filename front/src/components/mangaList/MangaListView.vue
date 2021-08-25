@@ -42,7 +42,6 @@ export default Vue.extend({
       else return remain;
     },
     cardTap(): void {
-      console.log("tap");
       this.$emit("card-tap");
     },
   },
