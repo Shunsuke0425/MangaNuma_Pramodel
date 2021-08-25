@@ -10,6 +10,13 @@ const routes: Array<RouteConfig> = [
     name: "MangaList",
     component: MangaList,
   },
+  //ログインページを追加
+  {
+    path: "/login",
+    name: "Login",
+    component: () =>
+      import(/* webpackChunkName: "login" */ "../pages/Login.vue"),
+  },
 ];
 
 const router = new VueRouter({
