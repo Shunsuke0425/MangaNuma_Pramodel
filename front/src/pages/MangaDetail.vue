@@ -1,5 +1,5 @@
 <template>
-  <BaseContainer>
+  <BaseContainer :point="userPoint">
     <template #mainContents>
       <div class="mt-5">
         <MangaDetailTexts />
@@ -46,6 +46,9 @@ export default Vue.extend({
   computed: {
     dummyBooks() {
       return dummyBooks;
+    },
+    userPoint(): number {
+      return this.$store.state.point;
     },
   },
   methods: {
