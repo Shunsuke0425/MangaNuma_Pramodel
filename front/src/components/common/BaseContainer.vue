@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-container>
     <v-app-bar color="deep-purple accent-4" fixed>
       <v-app-bar-nav-icon>
         <v-icon color="white">mdi-book-open-variant</v-icon>
@@ -33,7 +33,7 @@
 
       <v-btn fab small color="yellow"><h1>P</h1></v-btn>
     </v-footer>
-  </div>
+  </v-container>
 </template>
 
 <script lang="ts">

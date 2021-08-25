@@ -14,7 +14,7 @@ import MangaCard from "../common/MangaCard.vue";
 import { Book } from "../../types/Book";
 
 export default Vue.extend({
-  name: "Home",
+  name: "MangaListView",
   components: {
     MangaCard,
   },
