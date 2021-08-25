@@ -13,7 +13,9 @@
       >
     </v-app-bar>
     <div style="height: 60px" />
+
     <slot name="mainContents"></slot>
+
     <div style="height: 60px" />
     <v-footer
       class="d-flex justify-space-around"
