@@ -6,8 +6,13 @@
           <h1>コメント</h1>
           <CommentList :getMessage="messageArray" />
 
-          <v-row>
-            <v-col cols="8" md="4">
+          <v-footer
+            class="d-flex justify-space-around"
+            color="white"
+            fixed
+            height="200"
+          >
+            <v-col cols="10" md="4">
               <v-text-field
                 v-model="addMessage"
                 label="コメントを入力してください"
@@ -17,7 +22,7 @@
               ></v-text-field>
             </v-col>
             <v-btn @click="addClick">送信</v-btn>
-          </v-row>
+          </v-footer>
         </v-app>
       </template>
     </BaseContainer>
@@ -28,7 +33,6 @@
 import Vue from "vue";
 import BaseContainer from "../components/common/BaseContainer.vue";
 import CommentList from "../components/comment/CommentList.vue";
-//import CommentInput from "../components/comment/CommentInput.vue";
 
 export default Vue.extend({
   name: "Comment",
@@ -44,8 +48,10 @@ export default Vue.extend({
   },
   methods: {
     addClick: function () {
-      this.messageArray.push(this.addMessage);
-      this.addMessage = "";
+      if (this.addMessage) {
+        this.messageArray.push(this.addMessage);
+        this.addMessage = "";
+      }
     },
   },
 });
