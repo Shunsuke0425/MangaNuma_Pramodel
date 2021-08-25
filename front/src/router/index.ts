@@ -3,6 +3,8 @@ import VueRouter, { RouteConfig } from "vue-router";
 import MangaList from "../pages/MangaList.vue";
 import Login from "../pages/Login.vue";
 import MangaDetail from "../pages/MangaDetail.vue";
+import MangaContent from "../pages/MangaContent.vue";
+import Comment from "../pages/Comment.vue";
 
 Vue.use(VueRouter);
 
@@ -13,22 +15,26 @@ const routes: Array<RouteConfig> = [
     component: Login,
   },
   {
-    path: "/MangaList",
+    path: "/mangaList",
     name: "MangaList",
     component: MangaList,
   },
   {
-    path: "/MangaDetail",
+    path: "/mangaDetail",
     name: "MangaDetail",
     component: MangaDetail,
   },
   {
-    path: "/comment",
-    name: "Commnet",
-    component: () =>
-      import(/* webpackChunkName: "login" */ "../pages/Comment.vue")
+    path: "/mangaContent",
+    name: "MangaContent",
+    component: MangaContent,
   },
-  
+  {
+    path: "/comment",
+    name: "Comment",
+    component: Comment,
+  },
+
   //コメントページを追加
 ];
 
