@@ -11,7 +11,7 @@
               <v-text-field
                 v-model="addMessage"
                 label="コメントを入力してください"
-                outlind
+                outlined
                 hide-details="false"
                 required
               ></v-text-field>

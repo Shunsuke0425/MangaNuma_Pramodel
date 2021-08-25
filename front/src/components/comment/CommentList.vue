@@ -1,8 +1,10 @@
 <template>
   <div>
     <div v-for="commentText in getMessage" v-bind:key="commentText">
-      <v-icon>mdi-account-circle</v-icon>
-      {{ commentText }}
+      <v-card>
+        <v-icon>mdi-account-circle</v-icon>
+        {{ commentText }}
+      </v-card>
     </div>
   </div>
 </template>
