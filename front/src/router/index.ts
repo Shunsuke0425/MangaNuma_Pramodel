@@ -22,6 +22,14 @@ const routes: Array<RouteConfig> = [
     name: "MangaDetail",
     component: MangaDetail,
   },
+  {
+    path: "/comment",
+    name: "Commnet",
+    component: () =>
+      import(/* webpackChunkName: "login" */ "../pages/Comment.vue")
+  },
+  
+  //コメントページを追加
 ];
 
 const router = new VueRouter({
