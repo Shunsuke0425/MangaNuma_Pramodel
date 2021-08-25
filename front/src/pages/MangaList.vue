@@ -1,5 +1,5 @@
 <template>
-  <BaseContainer>
+  <BaseContainer :point="userPoint">
     <template #mainContents>
       <MangaListView :books="dummyBooks" @card-tap="cardTap" />
     </template>
@@ -21,6 +21,9 @@ export default Vue.extend({
   computed: {
     dummyBooks() {
       return dummyBooks;
+    },
+    userPoint(): number {
+      return this.$store.state.point;
     },
   },
   methods: {
