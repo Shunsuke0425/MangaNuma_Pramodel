@@ -1,7 +1,7 @@
 <template>
   <BaseContainer :point="userPoint">
     <template #mainContents>
-      <MangaListView :books="dummyBooks" @card-tap="cardTap" />
+      <MangaListView :books="books" @card-tap="moveToMangaDetail" />
     </template>
   </BaseContainer>
 </template>
@@ -10,7 +10,7 @@
 import Vue from "vue";
 import BaseContainer from "../components/common/BaseContainer.vue";
 import MangaListView from "../components/mangaList/MangaListView.vue";
-import { dummyBooks } from "../dummyData/DummyBooks";
+import { Book } from "../types/Book";
 
 export default Vue.extend({
   name: "Home",
@@ -19,16 +19,21 @@ export default Vue.extend({
     MangaListView,
   },
   computed: {
-    dummyBooks() {
-      return dummyBooks;
+    books(): Book[] {
+      return this.$store.state.books;
     },
     userPoint(): number {
       return this.$store.state.point;
     },
   },
   methods: {
-    cardTap(): void {
-      this.$router.push({ name: "MangaDetail" });
+    moveToMangaDetail(index: number): void {
+      this.$router.push({
+        name: "MangaDetail",
+        params: {
+          id: index.toString(),
+        },
+      });
     },
   },
 });
