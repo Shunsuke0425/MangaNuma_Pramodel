@@ -1,5 +1,5 @@
 <template>
-  <BaseContainer :point="userPoint">
+  <BaseContainer :point="userPoint" :pageIndex="0">
     <template #mainContents>
       <MangaListView :books="books" @card-tap="moveToMangaDetail" />
     </template>
@@ -23,7 +23,7 @@ export default Vue.extend({
       return this.$store.state.books;
     },
     userPoint(): number {
-      return this.$store.state.point;
+      return this.$store.state.user.point;
     },
   },
   methods: {

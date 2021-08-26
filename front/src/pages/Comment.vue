@@ -46,7 +46,7 @@ export default Vue.extend({
   },
   computed: {
     userPoint(): number {
-      return this.$store.state.point;
+      return this.$store.state.user.point;
     },
   },
   data() {

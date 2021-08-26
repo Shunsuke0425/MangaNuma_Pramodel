@@ -49,18 +49,23 @@ export default Vue.extend({
       default: 100,
       required: false,
     },
+    pageIndex: {
+      type: Number,
+      default: -1,
+      required: false,
+    },
   },
   methods: {
     routerPush(index: number): void {
       switch (index) {
         case 0:
-          this.$router.push({ name: "MangaList" });
+          if (this.pageIndex != 0) this.$router.push({ name: "MangaList" });
           break;
         case 1:
-          this.$router.push({ name: "Login" });
+          if (this.pageIndex != 1) this.$router.push({ name: "Login" });
           break;
         case 2:
-          this.$router.push({ name: "BuyPoint" });
+          if (this.pageIndex != 2) this.$router.push({ name: "BuyPoint" });
           break;
         default:
           break;

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BaseContainer :point="userPoint">
+    <BaseContainer :point="userPoint" :pageIndex="2">
       <template #mainContents>
         <h1>ポイント購入</h1>
 
@@ -43,7 +43,7 @@ export default Vue.extend({
   },
   computed: {
     userPoint(): number {
-      return this.$store.state.point;
+      return this.$store.state.user.point;
     },
   },
   data() {
@@ -58,7 +58,6 @@ export default Vue.extend({
         this.$store.commit("addPoint", 200);
         this.addNumber = "";
       } else this.openCodeMissDialog();
-      console.log("getPoint");
     },
     openAddPointDialog(point: number): void {
       (
@@ -66,7 +65,6 @@ export default Vue.extend({
       ).openDialog(point);
     },
     openCodeMissDialog(): void {
-      console.log("open");
       (
         this.$refs.codeMissPopup as InstanceType<typeof CodeMissPopup>
       ).openDialog();

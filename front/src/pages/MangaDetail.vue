@@ -48,7 +48,7 @@ export default Vue.extend({
       return this.$store.state.books;
     },
     userPoint(): number {
-      return this.$store.state.point;
+      return this.$store.state.user.point;
     },
   },
   props: {

@@ -65,7 +65,7 @@ export default Vue.extend({
       return this.books[0].pages.length;
     },
     userPoint(): number {
-      return this.$store.state.point;
+      return this.$store.state.user.point;
     },
     isReadPage(): boolean {
       return this.lastReadPage > this.currentReadPage;

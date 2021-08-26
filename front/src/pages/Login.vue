@@ -10,11 +10,12 @@
 
 <script lang="ts">
 import Vue from "vue";
-import axios from "axios";
 import Title from "../components/login/Title.vue";
 import LoginIcon from "../components/login/LoginIcon.vue";
 import LoginForm from "../components/login/LoginForm.vue";
 import LoginButton from "../components/login/LoginButton.vue";
+import { fetchMangaTable } from "../api/MnagaTable";
+import { fetchUserTable } from "../api/UserTable";
 
 export default Vue.extend({
   name: "Login",
@@ -24,6 +25,10 @@ export default Vue.extend({
     LoginForm,
     LoginButton,
   },
+  created() {
+    fetchMangaTable().then(books => this.$store.commit("setBooks", books));
+    fetchUserTable().then(user => this.$store.commit("setUser", user));
+  },
   data() {
     return {
       id: "ユーザーID",
@@ -32,23 +37,7 @@ export default Vue.extend({
   },
   methods: {
     login(): void {
-      this.getData();
       this.$router.push({ name: "MangaList" });
-    },
-    getData: async function () {
-      // const result = await axios({
-      //   method: "GET", // GET,POSTなど
-      //   url: "https://3ow9ltt4d8.execute-api.ap-northeast-1.amazonaws.com/manganuma01", // APIのURL
-      //   headers: {
-      //     "X-Api-Key": "××××××××××××××××", //リクエストヘッダー
-      //   },
-      // }).then(response => (this.items = response.data));
-      // console.log(result);
-      axios
-        .get(
-          "https://fcsmyt3q6l.execute-api.ap-northeast-1.amazonaws.com/manga-test-watanabe"
-        )
-        .then(res => console.log(res));
     },
   },
 });
