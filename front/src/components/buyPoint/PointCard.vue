@@ -2,7 +2,7 @@
   <div>
     <v-row justify="center">
       <v-card class="yellow mt-8 mb-8" elevation="12" width="300" height="175">
-        <v-card-title>○○pay</v-card-title>
+        <v-card-title>MangaNuma Prepaid</v-card-title>
       </v-card>
     </v-row>
   </div>

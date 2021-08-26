@@ -1,10 +1,10 @@
 <template>
   <BaseContainer :point="userPoint">
     <template #mainContents>
-      <v-row>
+      <v-row justify="center" align-content="center" class="mt-12">
         <v-col>
           <v-card :height="imageHeight" elevation="0">
-            <v-layout justify-center>
+            <v-layout>
               <!--
               <v-img :src="book.page[currentReadPage ]" />
               -->
@@ -63,7 +63,7 @@ export default Vue.extend({
       return dummyBooks;
     },
     imageHeight(): number {
-      return window.innerHeight - 200;
+      return window.innerHeight - 250;
     },
     lastPage(): number {
       return 15;
