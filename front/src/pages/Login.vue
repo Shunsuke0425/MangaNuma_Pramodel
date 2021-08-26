@@ -46,7 +46,7 @@ export default Vue.extend({
       // console.log(result);
       axios
         .get(
-          "https://3ow9ltt4d8.execute-api.ap-northeast-1.amazonaws.com/manganuma01"
+          "https://fcsmyt3q6l.execute-api.ap-northeast-1.amazonaws.com/manga-test-watanabe"
         )
         .then(res => console.log(res));
     },
