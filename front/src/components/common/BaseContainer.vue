@@ -31,7 +31,7 @@
         <v-icon>mdi-account</v-icon>
       </v-btn>
 
-      <v-btn fab small color="yellow" @click="routerPush(0)">
+      <v-btn fab small color="yellow" @click="routerPush(2)">
         <h1>P</h1>
       </v-btn>
     </v-footer>
@@ -60,7 +60,7 @@ export default Vue.extend({
           this.$router.push({ name: "Login" });
           break;
         case 2:
-          // this.$router.push({name: ""});
+          this.$router.push({ name: "BuyPoint" });
           break;
         default:
           break;

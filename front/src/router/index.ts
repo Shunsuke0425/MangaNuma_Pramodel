@@ -3,8 +3,9 @@ import VueRouter, { RouteConfig } from "vue-router";
 import MangaList from "../pages/MangaList.vue";
 import Login from "../pages/Login.vue";
 import MangaDetail from "../pages/MangaDetail.vue";
-import MangaContent from "../pages/MangaContent.vue";
 import Comment from "../pages/Comment.vue";
+import BuyPoint from "../pages/BuyPoint.vue";
+import MangaContent from "../pages/MangaContent.vue";
 
 Vue.use(VueRouter);
 
@@ -34,8 +35,11 @@ const routes: Array<RouteConfig> = [
     name: "Comment",
     component: Comment,
   },
-
-  //コメントページを追加
+  {
+    path: "/buyPoint",
+    name: "BuyPoint",
+    component: BuyPoint,
+  },
 ];
 
 const router = new VueRouter({

@@ -26,6 +26,7 @@
         </v-app>
       </template>
     </BaseContainer>
+    <AddPointPopup ref="popup" />
   </div>
 </template>
 
@@ -33,12 +34,14 @@
 import Vue from "vue";
 import BaseContainer from "../components/common/BaseContainer.vue";
 import CommentList from "../components/comment/CommentList.vue";
+import AddPointPopup from "../components/common/AddPointPopup.vue";
 
 export default Vue.extend({
   name: "Comment",
   components: {
     BaseContainer,
     CommentList,
+    AddPointPopup,
   },
   computed: {
     userPoint(): number {
@@ -56,7 +59,14 @@ export default Vue.extend({
       if (this.addMessage) {
         this.messageArray.push(this.addMessage);
         this.addMessage = "";
+        this.openDialog(50);
+        this.$store.commit("addPoint", 50);
       }
+    },
+    openDialog(point: number): void {
+      (this.$refs.popup as InstanceType<typeof AddPointPopup>).openDialog(
+        point
+      );
     },
   },
 });

@@ -83,11 +83,7 @@ export default Vue.extend({
     };
   },
   methods: {
-    cardTap(): void {
-      this.$router.push({ name: "MangaDetail" });
-    },
     nextPage(): void {
-      console.log(this.currentReadPage, this.lastReadPage);
       if (this.lastPage == this.currentReadPage + 1) this.openNextStoryDialog();
       else if (this.userPoint <= 0 && !this.isReadPage)
         this.openNoPointDialog();
@@ -118,7 +114,7 @@ export default Vue.extend({
       ).openDialog();
     },
     moveToPoint(): void {
-      // this.$router.push({ name: "Point" });
+      this.$router.push({ name: "BuyPoint" });
     },
     moveToComment(): void {
       this.$router.push({ name: "Comment" });

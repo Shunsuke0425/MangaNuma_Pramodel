@@ -4,7 +4,7 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export interface PointState {
-  point: number
+  point: number;
 }
 
 const mutations = {
@@ -16,8 +16,8 @@ const mutations = {
   },
   setPoint(state: PointState, num: number): void {
     state.point = num;
-  }
-}
+  },
+};
 
 export default new Vuex.Store({
   state: { point: 20 },
