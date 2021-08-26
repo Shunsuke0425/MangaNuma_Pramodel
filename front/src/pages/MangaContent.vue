@@ -5,12 +5,7 @@
         <v-col>
           <v-card :height="imageHeight" elevation="0">
             <v-layout justify-center>
-              <!--
-              <v-img :src="book.page[currentReadPage ]" />
-              -->
-              <v-img
-                src="https://1.bp.blogspot.com/-tVeC6En4e_E/X96mhDTzJNI/AAAAAAABdBo/jlD_jvZvMuk3qUcNjA_XORrA4w3lhPkdQCNcBGAsYHQ/s1048/onepiece01_luffy.png"
-              />
+              <v-img :src="books[0].pages[currentReadPage]" />
             </v-layout>
           </v-card>
         </v-col>
@@ -49,7 +44,7 @@ import Vue from "vue";
 import BaseContainer from "../components/common/BaseContainer.vue";
 import NoPointPopup from "../components/mangaContent/NoPointPopup.vue";
 import NextStoryPopup from "../components/mangaContent/NextStoryPopup.vue";
-import { dummyBooks } from "../dummyData/DummyBooks";
+import { Book } from "../types/Book";
 
 export default Vue.extend({
   name: "Home",
@@ -59,15 +54,15 @@ export default Vue.extend({
     NextStoryPopup,
   },
   computed: {
-    dummyBooks() {
-      return dummyBooks;
+    books(): Book[] {
+      return this.$store.state.books;
     },
     imageHeight(): number {
       return window.innerHeight - 200;
     },
     lastPage(): number {
-      return 15;
-      // return book.page.length
+      // 本当は前の画面で選択した漫画のID
+      return this.books[0].pages.length;
     },
     userPoint(): number {
       return this.$store.state.point;

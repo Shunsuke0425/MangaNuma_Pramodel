@@ -3,10 +3,10 @@
     <v-row v-for="n in rowNum" :key="n">
       <v-col v-for="m in colNum(n)" :key="m">
         <MangaCard
-          :book="books[(n - 1) * 3 - m]"
+          :book="books[(n - 1) * 3 + m - 1]"
           :width="80"
           :height="120"
-          @card-tap="cardTap"
+          @card-tap="cardTap((n - 1) * 3 + m - 1)"
         />
       </v-col>
     </v-row>
@@ -22,6 +22,9 @@ export default Vue.extend({
   name: "MangaListView",
   components: {
     MangaCard,
+  },
+  created() {
+    this.$store.commit("setDummyBooks");
   },
   props: {
     books: {
@@ -41,8 +44,8 @@ export default Vue.extend({
       if (remain >= 3) return 3;
       else return remain;
     },
-    cardTap(): void {
-      this.$emit("card-tap");
+    cardTap(index: number): void {
+      this.$emit("card-tap", index);
     },
   },
 });

@@ -2,7 +2,7 @@
   <BaseContainer :point="userPoint">
     <template #mainContents>
       <div class="mt-5">
-        <MangaDetailTexts />
+        <MangaDetailTexts :book="books[id]" />
         <v-row justify="center">
           <v-btn
             color="deep-purple accent-4"
@@ -15,14 +15,14 @@
             <div style="color: white" class="pl-3">コメントを見る</div>
           </v-btn>
         </v-row>
-        <v-row v-for="n in 6" :key="n" justify="center">
+        <v-row v-for="n in books[id].pages.length" :key="n" justify="center">
           <v-btn
             width="250px"
             height="60px"
             class="mt-3"
             @click="moveToMangaContent"
           >
-            <v-img :src="dummyBooks[n].src" height="50px" width="50px" />
+            <v-img :src="books[id].pages[n - 1]" height="50px" width="50px" />
             {{ n }}話
           </v-btn>
         </v-row>
@@ -35,7 +35,7 @@
 import Vue from "vue";
 import BaseContainer from "../components/common/BaseContainer.vue";
 import MangaDetailTexts from "../components/mangaDetail/MangaDetailTexts.vue";
-import { dummyBooks } from "../dummyData/DummyBooks";
+import { Book } from "../types/Book";
 
 export default Vue.extend({
   name: "Home",
@@ -44,11 +44,18 @@ export default Vue.extend({
     MangaDetailTexts,
   },
   computed: {
-    dummyBooks() {
-      return dummyBooks;
+    books(): Book[] {
+      return this.$store.state.books;
     },
     userPoint(): number {
       return this.$store.state.point;
+    },
+  },
+  props: {
+    id: {
+      type: String,
+      default: "0",
+      required: false,
     },
   },
   methods: {
