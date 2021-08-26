@@ -24,11 +24,13 @@ const routes: Array<RouteConfig> = [
     path: "/mangaDetail",
     name: "MangaDetail",
     component: MangaDetail,
+    props: true,
   },
   {
     path: "/mangaContent",
     name: "MangaContent",
     component: MangaContent,
+    props: true,
   },
   {
     path: "/comment",

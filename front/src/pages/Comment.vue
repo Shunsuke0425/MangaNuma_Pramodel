@@ -35,6 +35,7 @@ import Vue from "vue";
 import BaseContainer from "../components/common/BaseContainer.vue";
 import CommentList from "../components/comment/CommentList.vue";
 import AddPointPopup from "../components/common/AddPointPopup.vue";
+import { dummyBooks } from "../dummyData/DummyBooks";
 
 export default Vue.extend({
   name: "Comment",
@@ -50,7 +51,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      messageArray: [] as string[],
+      messageArray: dummyBooks[0].comments,
       addMessage: "",
     };
   },
