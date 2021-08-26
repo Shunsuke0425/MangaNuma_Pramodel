@@ -12,7 +12,7 @@
             fixed
             height="200"
           >
-            <v-col cols="10" md="4">
+            <v-col cols="9" md="1">
               <v-text-field
                 v-model="addMessage"
                 label="コメント"
