@@ -5,7 +5,7 @@
         <v-col>
           <v-card :height="imageHeight" elevation="0">
             <v-layout justify-center>
-              <v-img :src="books[0].pages[currentReadPage]" />
+              <v-img :src="books[id].pages[currentReadPage]" />
             </v-layout>
           </v-card>
         </v-col>
@@ -62,13 +62,20 @@ export default Vue.extend({
     },
     lastPage(): number {
       // 本当は前の画面で選択した漫画のID
-      return this.books[0].pages.length;
+      return this.books[Number(this.id)].pages.length;
     },
     userPoint(): number {
       return this.$store.state.user.point;
     },
     isReadPage(): boolean {
       return this.lastReadPage > this.currentReadPage;
+    },
+  },
+  props: {
+    id: {
+      type: String,
+      default: "0",
+      required: false,
     },
   },
   data() {

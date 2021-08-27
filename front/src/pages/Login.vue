@@ -14,7 +14,7 @@ import Title from "../components/login/Title.vue";
 import LoginIcon from "../components/login/LoginIcon.vue";
 import LoginForm from "../components/login/LoginForm.vue";
 import LoginButton from "../components/login/LoginButton.vue";
-import { fetchMangaTable } from "../api/MnagaTable";
+import { fetchMangaTable } from "../api/MangaTable";
 import { fetchUserTable } from "../api/UserTable";
 
 export default Vue.extend({
@@ -26,7 +26,9 @@ export default Vue.extend({
     LoginButton,
   },
   created() {
-    fetchMangaTable().then(books => this.$store.commit("setBooks", books));
+    fetchMangaTable().then(books => {
+      this.$store.commit("setBooks", books);
+    });
     fetchUserTable().then(user => this.$store.commit("setUser", user));
   },
   data() {

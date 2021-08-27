@@ -22,7 +22,10 @@ const mutations = {
   setPoint(state: MangaState, num: number): void {
     state.user.point = num;
   },
-  addComment(state: MangaState, payload: { id: number, comment: string; }): void {
+  addComment(
+    state: MangaState,
+    payload: { id: number; comment: string }
+  ): void {
     state.books[payload.id].comments.push(payload.comment);
   },
   setDummyBooks(state: MangaState): void {
@@ -32,8 +35,8 @@ const mutations = {
     state.books = books;
   },
   setUser(state: MangaState, user: User): void {
-    state.user = user
-  }
+    state.user = user;
+  },
 };
 
 export default new Vuex.Store({
