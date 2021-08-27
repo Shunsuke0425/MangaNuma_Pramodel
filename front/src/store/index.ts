@@ -22,6 +22,9 @@ const mutations = {
   setPoint(state: MangaState, num: number): void {
     state.user.point = num;
   },
+  addComment(state: MangaState, payload: { id: number, comment: string; }): void {
+    state.books[payload.id].comments.push(payload.comment);
+  },
   setDummyBooks(state: MangaState): void {
     state.books = dummyBooks;
   },

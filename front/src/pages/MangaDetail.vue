@@ -63,7 +63,12 @@ export default Vue.extend({
       this.$router.push({ name: "MangaContent" });
     },
     moveToComment(): void {
-      this.$router.push({ name: "Comment" });
+      this.$router.push({
+        name: "Comment",
+        params: {
+          id: this.id,
+        },
+      });
     },
   },
 });

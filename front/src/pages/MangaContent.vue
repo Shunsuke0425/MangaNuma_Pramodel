@@ -16,7 +16,7 @@
             </v-btn>
           </v-col>
           <v-col style="text-align: center">
-            {{ currentReadPage + 1 }}/{{ lastPage }}
+            <h3>{{ currentReadPage + 1 }}/{{ lastPage }}</h3>
           </v-col>
           <v-col style="text-align: right">
             <v-btn @click="prevPage">

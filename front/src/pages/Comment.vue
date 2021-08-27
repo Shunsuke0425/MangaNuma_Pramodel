@@ -4,7 +4,7 @@
       <template #mainContents>
         <v-app>
           <h1>コメント</h1>
-          <CommentList :getMessage="messageArray" />
+          <CommentList :getMessage="comments" />
 
           <v-footer
             class="d-flex justify-space-around"
@@ -44,24 +44,34 @@ export default Vue.extend({
     CommentList,
     AddPointPopup,
   },
+  props: {
+    id: {
+      type: String,
+      default: "0",
+      required: false,
+    },
+  },
   computed: {
     userPoint(): number {
       return this.$store.state.user.point;
     },
+    comments(): string[] {
+      return this.$store.state.books[Number(this.id)].comments;
+    },
   },
   data() {
     return {
-      messageArray: dummyBooks[0].comments,
+      messageArray: dummyBooks[Number(this.id)].comments,
       addMessage: "",
     };
   },
   methods: {
     addComment(): void {
       if (this.addMessage) {
-        this.messageArray.push(this.addMessage);
-        this.addMessage = "";
         this.openDialog(50);
+        this.$store.commit("addComment", { id: 0, comment: this.addMessage });
         this.$store.commit("addPoint", 50);
+        this.addMessage = "";
       }
     },
     openDialog(point: number): void {
