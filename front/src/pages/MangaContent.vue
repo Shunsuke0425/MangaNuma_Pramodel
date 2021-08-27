@@ -3,6 +3,7 @@
     <template #mainContents>
       <v-row>
         <v-col>
+          <h2 style="text-align: center">{{ storyId + 1 }}話</h2>
           <v-card :height="imageHeight" elevation="0">
             <v-layout justify-center>
               <v-img :src="books[id].pages[currentReadPage]" />
@@ -32,7 +33,8 @@
       />
       <NextStoryPopup
         ref="nextStoryPopup"
-        @move-to-manga-content="moveToMangaContent"
+        :storyId="storyId"
+        @move-to-manga-content="moveToNextMangaContent"
         @move-to-comment="moveToComment"
       />
     </template>
@@ -58,7 +60,7 @@ export default Vue.extend({
       return this.$store.state.books;
     },
     imageHeight(): number {
-      return window.innerHeight - 200;
+      return window.innerHeight - 236;
     },
     lastPage(): number {
       // 本当は前の画面で選択した漫画のID
@@ -77,11 +79,17 @@ export default Vue.extend({
       default: "0",
       required: false,
     },
+    selectedStoryId: {
+      type: String,
+      default: "0",
+      required: false,
+    },
   },
   data() {
     return {
       currentReadPage: 0,
       lastReadPage: 0,
+      storyId: Number(this.selectedStoryId),
     };
   },
   methods: {
@@ -91,7 +99,10 @@ export default Vue.extend({
         this.openNoPointDialog();
       else {
         this.currentReadPage++;
-        if (this.lastReadPage + 1 == this.currentReadPage) {
+        if (
+          this.lastReadPage + 1 == this.currentReadPage &&
+          this.storyId >= this.books[Number(this.id)].freePage
+        ) {
           this.lastReadPage++;
           this.$store.commit("deletePoint", 1);
         }
@@ -121,9 +132,10 @@ export default Vue.extend({
     moveToComment(): void {
       this.$router.push({ name: "Comment" });
     },
-    moveToMangaContent(): void {
+    moveToNextMangaContent(): void {
       this.currentReadPage = 0;
       this.lastReadPage = 0;
+      this.storyId++;
       this.closeNextStoryDialog();
     },
   },
