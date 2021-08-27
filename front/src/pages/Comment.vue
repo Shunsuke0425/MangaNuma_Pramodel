@@ -69,7 +69,10 @@ export default Vue.extend({
     addComment(): void {
       if (this.addMessage) {
         this.openDialog(50);
-        this.$store.commit("addComment", { id: 0, comment: this.addMessage });
+        this.$store.commit("addComment", {
+          id: this.id,
+          comment: this.addMessage,
+        });
         this.$store.commit("addPoint", 50);
         this.addMessage = "";
       }
