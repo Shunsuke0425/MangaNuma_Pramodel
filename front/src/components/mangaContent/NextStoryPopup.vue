@@ -20,7 +20,7 @@
           @click="moveToMangaContent"
         >
           <v-icon>mdi-book-open-variant</v-icon>
-          <div class="pl-3">次の話へ</div>
+          <div class="pl-3">{{ storyId + 2 }}話へ</div>
         </v-btn>
       </v-row>
     </template>
@@ -36,7 +36,13 @@ export default Vue.extend({
   components: {
     BasePopup,
   },
-  computed: {},
+  props: {
+    storyId: {
+      type: Number,
+      default: 0,
+      required: false,
+    },
+  },
   data() {
     return {
       title: "コメントを書いてポイントゲット!!",

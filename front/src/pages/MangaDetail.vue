@@ -20,7 +20,7 @@
             width="250px"
             height="60px"
             class="mt-3"
-            @click="moveToMangaContent"
+            @click="moveToMangaContent(n - 1)"
           >
             <v-img :src="books[id].pages[n - 1]" height="50px" width="50px" />
             {{ n }}話
@@ -59,11 +59,12 @@ export default Vue.extend({
     },
   },
   methods: {
-    moveToMangaContent(): void {
+    moveToMangaContent(selectedStoryId: number): void {
       this.$router.push({
         name: "MangaContent",
         params: {
           id: this.id,
+          selectedStoryId: String(selectedStoryId),
         },
       });
     },
