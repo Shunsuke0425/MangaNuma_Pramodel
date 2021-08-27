@@ -36,6 +36,7 @@ const routes: Array<RouteConfig> = [
     path: "/comment",
     name: "Comment",
     component: Comment,
+    props: true,
   },
   {
     path: "/buyPoint",

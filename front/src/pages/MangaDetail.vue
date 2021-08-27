@@ -48,7 +48,7 @@ export default Vue.extend({
       return this.$store.state.books;
     },
     userPoint(): number {
-      return this.$store.state.point;
+      return this.$store.state.user.point;
     },
   },
   props: {
@@ -60,10 +60,20 @@ export default Vue.extend({
   },
   methods: {
     moveToMangaContent(): void {
-      this.$router.push({ name: "MangaContent" });
+      this.$router.push({
+        name: "MangaContent",
+        params: {
+          id: this.id,
+        },
+      });
     },
     moveToComment(): void {
-      this.$router.push({ name: "Comment" });
+      this.$router.push({
+        name: "Comment",
+        params: {
+          id: this.id,
+        },
+      });
     },
   },
 });

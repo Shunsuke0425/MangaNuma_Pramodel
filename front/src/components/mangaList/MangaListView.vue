@@ -23,9 +23,6 @@ export default Vue.extend({
   components: {
     MangaCard,
   },
-  created() {
-    this.$store.commit("setDummyBooks");
-  },
   props: {
     books: {
       type: Array as PropType<Book[]>,
