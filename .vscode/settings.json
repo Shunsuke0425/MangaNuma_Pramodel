@@ -1,0 +1,19 @@
+{
+  "editor.tabSize": 2,
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "prettier.arrowParens": "avoid",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "prettier.jsxBracketSameLine": true,
+  "javascript.format.semicolons": "insert",
+  "typescript.format.semicolons": "insert",
+  "typescript.preferences.quoteStyle": "double",
+  "javascript.preferences.quoteStyle": "double",
+  "npm.packageManager": "yarn"
+}
