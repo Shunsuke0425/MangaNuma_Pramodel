@@ -3,6 +3,7 @@
     <template #mainContents>
       <v-row>
         <v-col>
+          <h2 style="text-align: center">{{ storyId + 1 }}話</h2>
           <v-card :height="imageHeight" elevation="0">
             <v-layout justify-center>
               <v-img :src="books[id].pages[currentReadPage]" />
@@ -59,7 +60,7 @@ export default Vue.extend({
       return this.$store.state.books;
     },
     imageHeight(): number {
-      return window.innerHeight - 200;
+      return window.innerHeight - 236;
     },
     lastPage(): number {
       // 本当は前の画面で選択した漫画のID
