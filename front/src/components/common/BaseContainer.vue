@@ -16,9 +16,9 @@
 
     <slot name="mainContents"></slot>
 
-    <div style="height: 60px" />
+    <div style="height: 60px" class="safe-area" />
     <v-footer
-      class="d-flex justify-space-around"
+      class="d-flex justify-space-around safe-area"
       color="deep-purple accent-4"
       fixed
       height="60"
@@ -70,4 +70,9 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.safe-area {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+</style>
