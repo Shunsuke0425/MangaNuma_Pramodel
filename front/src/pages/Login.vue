@@ -10,6 +10,7 @@
 
 <script lang="ts">
 import Vue from "vue";
+import axios from "axios";
 import Title from "../components/login/Title.vue";
 import LoginIcon from "../components/login/LoginIcon.vue";
 import LoginForm from "../components/login/LoginForm.vue";
@@ -32,6 +33,11 @@ export default Vue.extend({
   methods: {
     login(): void {
       this.$router.push({ name: "MangaList" });
+      axios
+        .get(
+          "https://ojlzxio5j1.execute-api.ap-northeast-1.amazonaws.com/cors-test-watanabe"
+        )
+        .then(res => console.log(res));
     },
   },
 });
