@@ -6,5 +6,5 @@ const fetchUserTableUrl =
 
 export const fetchUserTable = async (): Promise<User> => {
   const result = axios.get(fetchUserTableUrl);
-  return (await result).data[0];
+  return (await result).data.body[0];
 };
